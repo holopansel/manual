@@ -36,6 +36,7 @@ extensions = [
     "sphinx_rtd_theme",
     "sphinx_multiversion",
     "sphinx_mixxx",
+    "notfound.extension",
 ]
 
 todo_include_todos = True
@@ -75,32 +76,27 @@ supported_languages = {
     "ca": "Català",
     "cs": "Čeština",
     "de": "Deutsch",
-    "de-DE": "Deutsch (Deutschland)",
     "en": "English",
-    "en-GB": "English (UK)",
+    "en_GB": "English (UK)",
     "es": "Español",
-    "es-ES": "Español (España)",
-    "es-MX": "Español (Mexico)",
     "fi": "Suomi",
     "fr": "Français",
     "gl": "Galego",
     "id": "Bahasa Indonesia",
     "it": "Italiano",
-    "ja-JP": "日本語",
-    "kn": "ಕನ್ನಡ",
+    "ja": "日本語",
     "nl": "Nederlands",
     "pl": "Polszczyzna",
     "pt": "Português",
-    "pt-BR": "Português (Brasil)",
+    "pt_BR": "Português (Brasil)",
     "ro": "Română",
     "ru": "Русский",
-    "ru-RU": "Русский (Росси́я)",
     "sl": "Slovenščina",
     "sq": "Shqip",
     "sr": "Српски Језик",
     "tr": "Türkçe",
-    "zh-CN": "中文 (中国)",
-    "zh-TW": "中文 (臺灣)",
+    "zh_CN": "中文 (中国)",
+    "zh_TW": "中文 (臺灣)",
 }
 
 smv_tag_whitelist = r"^$"
@@ -110,6 +106,7 @@ smv_remote_whitelist = r"^origin$"
 smv_released_pattern = r"^.*/(?!2\.4)(\d+)\.(\d+)$"
 smv_latest_version = r"2.3"
 smv_outputdir_format = "{config.version}/{config.language}"
+notfound_urls_prefix = "/2.3/en/"
 
 # Directories in which to search for additional message catalogs (see language),
 # relative to the source directory. The directories on this path are searched
@@ -447,7 +444,15 @@ linkcheck_ignore = [
     # Ignore Twitter links because for some reason valid links sometimes fail
     # with "400 Bad Request"
     r"^https://twitter.com/\w+$",
+    "https://support.native-instruments.com/hc/en-us/articles/360001108518",
+    "https://support.serato.com/hc/en-us/articles/203593924-Vestax-Hardware-Drivers-and-Firmware",
+    "https://www.numark.com/images/product_downloads/MixtrackPro3-UserGuide-v1.1.pdf",
+    "https://www.numark.com/product/*",
+    "https://www.pioneerdj.com/en/support/software/controller/*",
+    "https://support.pioneerdj.com/hc/sections/*",
+    "https://www.roland.com/global/products/dj-505/*",
 ]
 
 # Avoid freezing during linkcheck
-linkcheck_timeout = 10
+linkcheck_timeout = 60
+linkcheck_retries = 2
